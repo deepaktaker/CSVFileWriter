@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 public class CSVWriter {
     public static void main(String[] args) throws IOException {
         Path path = Paths.get("Data.csv");
+        System.out.println("Path that is set :" + args[0]);
         if (args != null && args.length > 0) {
             path = Paths.get(args[0] + System.lineSeparator() + path.toString());
         }
-        System.out.println("Path that is set :" + args[0]);
         try (BufferedWriter bufWrite = new BufferedWriter(new FileWriter("src/main/resources/Data.csv"));) {
             bufWrite.write("Name,Dept,Salary\n");
             bufWrite.write("Deep,CPI,12000");
