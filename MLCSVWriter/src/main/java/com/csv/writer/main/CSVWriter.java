@@ -1,6 +1,7 @@
 package com.csv.writer.main;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -10,7 +11,7 @@ public class CSVWriter {
     public static void main(String[] args) throws IOException {
         Path path = Paths.get("Data.csv");
         if (args != null && args.length > 0) {
-            path = Paths.get(args[0] + System.lineSeparator() + path.toString());
+            path = Paths.get(args[0] + File.separator + path.toString());
         }
         System.out.println("Path that is set :" + path);
         try (BufferedWriter bufWrite = new BufferedWriter(new FileWriter(path.toFile()));) {
